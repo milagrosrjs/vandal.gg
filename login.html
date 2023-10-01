@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torneos - Vandal.GG</title>
+    <title>Log in - Vandal.GG</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 <!-- 
     - favicon
@@ -23,7 +23,7 @@
 </head>
 
 <body id="top">
-    <!-- Encabezado de la tienda -->
+    <!-- Encabezado del login -->
     <header class="header active" data-header>
         <div class="container">
     
@@ -34,16 +34,15 @@
             <a href="index.html" class="navbar-link" data-nav-link>Inicio</a>
           </li>
           <li class="navbar-item">
-            <a href="tienda.html" class="navbar-link" data-nav-link>Tienda</a>
+            <a href="torneos.html" class="navbar-link" data-nav-link>Torneos</a>
           </li>
         
           <li class="navbar-item">
-            <a href="foros.html" class="navbar-link" data-nav-link>Foros</a>
+            <a href="tienda.html" class="navbar-link" data-nav-link>Tienda</a>
           </li>
           </nav>
           <a href="login.html" class="btn" data-btn>Inicia Sesión</a>
           <a href="#" class="btn" data-btn>Regístrate</a>
-          
     
           <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
             <span class="line line-1"></span>
@@ -54,23 +53,50 @@
         </div>
       </header>
 
-    <main>
-        <article>
-    
-          <!-- 
-            - #TIENDA
-          -->
-    
-          <div class="hero has-before" id="home">
-            <div class="container">
-    
-              <p class="section-subtitle">¡Compite y gana!</p>
-    
-              <h1 class="h1 title hero-title">Torneos</h1>
-    
+      <main class="main-content">
+        <div class="container">
+          <div class="col-md-4 mb-4"></div>
+          <div class="row justify-content-center align-items-center vh-100">
+            <!-- 'vh-100' hará que la tarjeta ocupe toda la altura de la pantalla -->
+            <div class="col-md-6 mx-auto">
+              <div class="card card-login">
+                <div class="card-body">
+                  <h1 class="text-center">Iniciar Sesión</h1>
+                  <form id="login-form">
+                    <div class="form-group">
+                      <label for="username">Nombre de Usuario:</label>
+                      <input type="text" id="username" name="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Contraseña:</label>
+                      <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="form-group text-center">
+                      <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                      <!-- 'btn-block' hará que el botón ocupe todo el ancho de la tarjeta -->
+                    </div>
+                  </form>
+                  <div class="text-center">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                  </div>
+                  <hr>
+                  <div class="text-center">
+                    <p>O inicia sesión con:</p>
+                    <button type="button" class="btn btn-secondary btn-block">Google</button>
+                    <!-- 'btn-block' hará que el botón ocupe todo el ancho de la tarjeta -->
+                    <!-- Puedes agregar botones para otros servicios aquí -->
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </body>
+        </div>
+      </main>
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
   <!-- 
     - #FOOTER
   -->
