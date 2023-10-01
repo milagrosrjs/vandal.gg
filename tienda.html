@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Vandal.GG</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body id="top">
+    <!-- Encabezado de la tienda -->
+    <header class="header active" data-header>
+        <div class="container">
+    
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="200" height="100" alt="vandalgg home">
+          </a>
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link" data-nav-link>Inicio</a>
+          </li>
+          <li class="navbar-item">
+            <a href="torneos.html" class="navbar-link" data-nav-link>Torneos</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="foros.html" class="navbar-link" data-nav-link>Foros</a>
+          </li>
+          </nav>
+    
+          <a href="#" class="btn" data-btn>Regístrate</a>
+    
+          <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </button>
+    
+        </div>
+      </header>
+
+    <main>
+        <article>
+    
+          <!-- 
+            - #TIENDA
+          -->
+    
+          <div class="hero has-before" id="home">
+            <div class="container">
+    
+              <p class="section-subtitle">Gasta tus Vandal Coins</p>
+    
+              <h1 class="h1 title hero-title">Tienda</h1>
+    
+            </div>
+          </div>   
+
+          <!-- Botón de "Carrito" con ícono y cantidad -->
+          <a href="carrito.html" class="btn btn-primary d-flex justify-content-center align-items-center ml-auto">
+            <i class="fas fa-shopping-cart mr-2"></i> Carrito
+            <span class="badge badge-light ml-1" id="contador-carrito">0</span>
+          </a>
+    <!-- Lista de productos -->
+    <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="./assets/images/producto1.jpg" alt="Producto 1" class="card-img-top">
+              <div class="card-body">
+                  <h2 class="card-title">Producto 1</h2>
+                  <p class="card-text">Descripción del Producto 1.</p>
+                  <p class="card-text">Precio: $XX.XX</p>
+                  <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="./assets/images/producto2.jpg" alt="Producto 2" class="card-img-top">
+              <div class="card-body">
+                  <h2 class="card-title">Producto 2</h2>
+                  <p class="card-text">Descripción del Producto 2.</p>
+                  <p class="card-text">Precio: $XX.XX</p>
+                  <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="./assets/images/producto3.jpg" alt="Producto 3" class="card-img-top">
+            <div class="card-body">
+                <h2 class="card-title">Producto 3</h2>
+                <p class="card-text">Descripción del Producto 2.</p>
+                <p class="card-text">Precio: $XX.XX</p>
+                <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+          <img src="./assets/images/producto4.jpg" alt="Producto 4" class="card-img-top">
+          <div class="card-body">
+              <h2 class="card-title">Producto 4</h2>
+              <p class="card-text">Descripción del Producto 2.</p>
+              <p class="card-text">Precio: $XX.XX</p>
+              <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="card">
+        <img src="./assets/images/producto5.jpg" alt="Producto 5" class="card-img-top">
+        <div class="card-body">
+            <h2 class="card-title">Producto 5</h2>
+            <p class="card-text">Descripción del Producto 2.</p>
+            <p class="card-text">Precio: $XX.XX</p>
+            <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 mb-4">
+  <div class="card">
+      <img src="./assets/images/producto6.jpg" alt="Producto 6" class="card-img-top">
+      <div class="card-body">
+          <h2 class="card-title">Producto 6</h2>
+          <p class="card-text">Descripción del Producto 2.</p>
+          <p class="card-text">Precio: $XX.XX</p>
+          <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
+      </div>
+  </div>
+</div>
+<script>
+  // Obtén una referencia al elemento del contador y al botón del carrito
+  var contadorCarrito = document.getElementById("contador-carrito");
+
+  // Inicializa el contador
+  var contador = 0;
+
+  // Función para actualizar el contador y el botón del carrito
+  function actualizarCarrito() {
+    contador++;
+    contadorCarrito.textContent = contador;
+  }
+
+  // Agrega un evento clic a todos los botones "Agregar al carrito"
+  var botonesAgregar = document.querySelectorAll(".btn-agregar");
+  botonesAgregar.forEach(function(boton) {
+    boton.addEventListener("click", actualizarCarrito);
+  });
+</script>
+<script>
+  // Función para agregar un producto al carrito
+  function agregarAlCarrito(nombre, precio) {
+      // Recupera la lista de productos en el carrito desde localStorage (si existe)
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+      // Agrega el producto seleccionado al carrito
+      carrito.push({ nombre, precio });
+
+      // Guarda el carrito actualizado en localStorage
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+  }
+
+  // Agregar un evento clic a todos los botones "Agregar al carrito"
+  const botonesAgregar = document.querySelectorAll(".btn-agregar");
+  botonesAgregar.forEach(function (boton) {
+      boton.addEventListener("click", function () {
+          const nombre = boton.getAttribute("data-nombre");
+          const precio = parseFloat(boton.getAttribute("data-precio"));
+          agregarAlCarrito(nombre, precio);
+      });
+  });
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+
+</body>
+
+</body>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="1" height="7" loading="lazy" alt="Vandalgg logo">
+          </a>
+
+          <p class="footer-text">
+            Juega, compite y conquista: donde los jugadores se unen para Triunfar
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Links útiles</p>
+
+          <ul>
+
+            <li>
+              <a href="#" class="footer-link">Torneos</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Inicia Sesión</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Política y Privacidad</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terminos de Uso</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contáctanos</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Contáctanos</p>
+
+          <div class="contact-item">
+            <span class="span">Ubicación:</span>
+
+            <address class="contact-link">
+              Corrientes, Argentina
+            </address>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Trabaja con nosotros:</span>
+
+            <a href="mailto:Info@vandalgg.com" class="contact-link">workwithus@vandalgg.com</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Phone:</span>
+
+            <a href="tel:+12345678910" class="contact-link">+54 (379) 400-3143</a>
+          </div>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">No te pierdas de nada</p>
+
+          <form action="./index.html" method="get" class="footer-form">
+            <input type="email" name="email_address" required placeholder="Tu mail" autocomplete="off"
+              class="input-field">
+
+            <button type="submit" class="btn" data-btn>Suscríbete</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2023 Vandal.GG All Rights Reserved.
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+</html>
