@@ -233,6 +233,7 @@
     padding-inline: 30px;
     clip-path: var(--clip-path-3);
     overflow: hidden;
+    border: none;
   }
   
   .btn::before {
@@ -614,8 +615,20 @@
   .news-card .link:is(:hover, :focus-visible) { color: var(--text-purple); }
   
   
-  
-  
+  /* Estilo personalizado para cambiar el fondo de los elementos .card QUE SON DE tienda*/
+.card {
+    background-color: #333;
+    color: white;
+    width: 300px;
+}
+.card .card-img-top {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la relación de aspecto original de la imagen */
+}
+
+.card .card-body {
+    padding: 10px; /* Ajusta el relleno (padding) interno según tus necesidades */
+}
   
   /*-----------------------------------*\
     #FOOTER
@@ -1084,6 +1097,6 @@
   
     .footer-top .container { grid-template-columns: 1f 0.5fr 0.5fr 1fr; }
   
-    .footer .logo img { width: 300px; }
+    .footer .logo img { width: 150px; }
   
   }
