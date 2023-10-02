@@ -317,13 +317,13 @@
   .header .btn { display: none; }
   
   .header {
-    position: absolute;
+    position: fixed; /* Cambiado de sticky a fixed */
     top: 0;
     left: 0;
     width: 100%;
     background-color: var(--bg-dark-purple);
     padding: 10px 12px;
-    z-index: 4;
+    z-index: 100;
   }
   
   .header.active {
@@ -389,8 +389,10 @@
   .navbar-item { border-block-start: 1px solid var(--border-space-cadet); }
   
   .navbar-item:last-child { border-block-end: 1px solid var(--border-space-cadet); }
-  
-  
+
+  .main-content {
+    margin-top: 60px;
+  }
   
   
   
@@ -629,7 +631,23 @@
 .card .card-body {
     padding: 10px; /* Ajusta el relleno (padding) interno según tus necesidades */
 }
-  
+.card-login {
+    background-color: #333;
+    color: white;
+    width: 300px;
+    margin: 0 auto; /* Esto centrará horizontalmente la tarjeta */
+    padding: 1px;
+    margin: 170px auto 0;
+}
+.card-login .card-img-top {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la relación de aspecto original de la imagen */
+}
+
+.card-login .card-body {
+    padding: 30px; /* Ajusta el relleno (padding) interno según tus necesidades */
+    margin: 0;
+}  
   /*-----------------------------------*\
     #FOOTER
   \*-----------------------------------*/
