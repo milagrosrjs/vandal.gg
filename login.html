@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in - Vandal.GG</title>
+    <title>Tienda - Vandal.GG</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 <!-- 
     - favicon
@@ -22,7 +22,7 @@
 
 </head>
 
-<body id="top">
+<body>
     <!-- Encabezado del login -->
     <header class="header active" data-header>
         <div class="container">
@@ -41,7 +41,7 @@
             <a href="tienda.html" class="navbar-link" data-nav-link>Tienda</a>
           </li>
           </nav>
-          <a href="login.html" class="btn" data-btn>Inicia Sesión</a>
+    
           <a href="#" class="btn" data-btn>Regístrate</a>
     
           <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
@@ -49,6 +49,7 @@
             <span class="line line-2"></span>
             <span class="line line-3"></span>
           </button>
+         
     
         </div>
       </header>
@@ -82,7 +83,8 @@
                   <hr>
                   <div class="text-center">
                     <p>O inicia sesión con:</p>
-                    <button type="button" class="btn btn-secondary btn-block">Google</button>
+                    <button type="button" class="btn btn-secondary btn-block" id="login1" >Google</button>
+                    
                     <!-- 'btn-block' hará que el botón ocupe todo el ancho de la tarjeta -->
                     <!-- Puedes agregar botones para otros servicios aquí -->
                   </div>
@@ -95,7 +97,75 @@
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+     <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+      import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyApyVdfxlnp_J0wz1N3fAWGf9Kk2fswt5c",
+        authDomain: "vandallogin.firebaseapp.com",
+        projectId: "vandallogin",
+        storageBucket: "vandallogin.appspot.com",
+        messagingSenderId: "363237174575",
+        appId: "1:363237174575:web:6d6c7de8c5c199c91185da",
+        measurementId: "G-TRGDWCV8BX"
+      };
+    
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const provider = new GoogleAuthProvider(app);
+const auth = getAuth();
+// Configura la persistencia en sesión del navegador
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Ahora la sesión de usuario se mantendrá después de actualizar la página
+  })
+  .catch((error) => {
+    console.error("Error al configurar la persistencia:", error);
+  });
+
+document.getElementById('login1').addEventListener('click', (e) => {
+  console.log('Botón de inicio de sesión con Google clickeado');
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+
+      alert(user.displayName);
+
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message; // Use errorMessage here
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+      alert(errorMessage); // Use errorMessage here
+    });
+});
+
+</script>
+
+
+
+ 
 </body>
+
 
   <!-- 
     - #FOOTER
@@ -229,42 +299,4 @@
     </div>
 
   </footer>
-  
-
-
-
-
-  <!-- 
-    - #BACK TO TOP
-  -->
-
-  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-    <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
-  </a>
-
-
-
-
-
-  <!-- 
-    - #CUSTOM CURSOR
-  -->
-
-  <div class="cursor" data-cursor></div>
-
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </html>
