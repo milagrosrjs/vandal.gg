@@ -41,7 +41,6 @@ addEventOnElements(navLinks, "click", navClose);
 
 /**
  * HEADER and BACK TOP BTN
- * header and back top btn will be active after scrolled down to 100px of screen
  */
 
 const header = document.querySelector("[data-header]");
@@ -62,7 +61,7 @@ window.addEventListener("scroll", activeEl);
 
 
 /**
- * Button hover ripple effect
+ * Efecto del boton
  */
 
 const buttons = document.querySelectorAll("[data-btn]");
@@ -77,7 +76,7 @@ addEventOnElements(buttons, "mousemove", buttonHoverRipple);
 
 
 /**
- * Scroll reveal
+ * Scroll
  */
 
 const revealElements = document.querySelectorAll("[data-reveal]");
