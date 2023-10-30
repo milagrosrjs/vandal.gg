@@ -102,7 +102,8 @@
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-      import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+      import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
     
@@ -123,6 +124,18 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const provider = new GoogleAuthProvider(app);
 const auth = getAuth();
+const db = getFirestore(app);
+const torneosRef = collection(db, "Torneos");
+
+getDocs(torneosRef)
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error al obtener documentos: ", error);
+  });
 // Configura la persistencia en sesión del navegador
 setPersistence(auth, browserSessionPersistence)
   .then(() => {
@@ -158,6 +171,7 @@ document.getElementById('login1').addEventListener('click', (e) => {
       alert(errorMessage); // Use errorMessage here
     });
 });
+
 
 </script>
 
