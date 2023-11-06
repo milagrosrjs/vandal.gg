@@ -49,11 +49,10 @@
             <span class="line line-2"></span>
             <span class="line line-3"></span>
           </button>
-         
     
         </div>
+        
       </header>
-
       <main class="main-content">
         <div class="container">
           <div class="col-md-4 mb-4"></div>
@@ -94,6 +93,60 @@
           </div>
         </div>
       </main>
+      <main class="main-content">
+        <div class="container">
+            <div class="row justify-content-center align-items-center vh-100">
+                <div class="col-md-6 mx-auto">
+                    <!-- Formulario de Registro -->
+                    <div class="card card-login" id="registro-card">
+                        <div class="card-body">
+                            <h1 class="text-center">Registro</h1>
+                            <form id="registro-form" method="POST" action="/registro">
+                              <div class="form-group">
+                                <label for="nombre">Nombre de Usuario:</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="email">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="contrasena">Contraseña:</label>
+                                <input type="password" id="contrasena" name="contrasena" class="form-control" required>
+                              </div>
+                              <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+    
+                    <!-- Formulario de Inicio de Sesión -->
+                    <div class="card card-login" id="login-card">
+                        <div class="card-body">
+                            <h1 class="text-center">Iniciar Sesión</h1>
+                            <form id="login-form">
+                                <div class="form-group">
+                                    <label for="email-login">Correo Electrónico:</label>
+                                    <input type="email" id="email-login" name="email-login" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contrasena-login">Contraseña:</label>
+                                    <input type="password" id="contrasena-login" name="contrasena-login" class="form-control" required>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                                </div>
+                            </form>
+                            <div class="text-center">
+                                <a href="#">¿Olvidaste tu contraseña?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -171,6 +224,22 @@ document.getElementById('login1').addEventListener('click', (e) => {
       alert(errorMessage); // Use errorMessage here
     });
 });
+const registroCard = document.getElementById('registro-card');
+    const loginCard = document.getElementById('login-card');
+    const registroForm = document.getElementById('registro-form');
+    const loginForm = document.getElementById('login-form');
+
+    // Mostrar el formulario de registro
+    document.getElementById('btn-registrarse').addEventListener('click', () => {
+        registroCard.style.display = 'block';
+        loginCard.style.display = 'none';
+    });
+
+    // Mostrar el formulario de inicio de sesión
+    document.getElementById('btn-iniciar-sesion').addEventListener('click', () => {
+        loginCard.style.display = 'block';
+        registroCard.style.display = 'none';
+    });
 
 
 </script>
