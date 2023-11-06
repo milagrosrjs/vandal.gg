@@ -9,7 +9,7 @@ $(document).ready(function () {
         // Realiza una solicitud AJAX para enviar los datos al servidor
         $.ajax({
             url: '/registro', // Asegúrate de que esta sea la ruta correcta en tu servidor
-            method: 'POST',
+            method: 'POST', // Debe ser POST para una solicitud POST
             data: {
                 nombre: nombre,
                 email: email,
@@ -24,5 +24,6 @@ $(document).ready(function () {
                 console.error('Error en el registro:', error);
             }
         });
+        
     });
 });
