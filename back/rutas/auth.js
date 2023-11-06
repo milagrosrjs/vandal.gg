@@ -6,7 +6,7 @@ const connection = require('../bd'); // Importa la conexión a la base de datos
 router.use(express.urlencoded({ extended: true }));
 
 // Ruta para el registro de usuarios
-router.post('/registro', (req, res) => {
+router.post('/index.html', (req, res) => {
   // Recibe los datos del formulario
   const { nombre, email, contrasena } = req.body;
 
