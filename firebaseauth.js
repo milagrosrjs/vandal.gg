@@ -9,7 +9,6 @@ const auth = getAuth(app);
 const firestore = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
-// Configura la persistencia en sesión del navegador
 setPersistence(auth, browserSessionPersistence)
   .then(() => {
     // La sesión de usuario se mantendrá después de actualizar la página
@@ -17,7 +16,6 @@ setPersistence(auth, browserSessionPersistence)
   .catch((error) => {
     console.error("Error al configurar la persistencia:", error);
   });
-
 export { auth, provider, signInWithPopup, firestore };
 
 // Otras funciones relacionadas con Firebase, si las tienes
