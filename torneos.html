@@ -19,7 +19,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
     rel="stylesheet">
-
+    <script src="./firebaseConfig.js" type="module"></script>
+    <script src="./auth.js" type="module"></script>
+    <script src="./teamCreation.js" type="module"></script>
+    <script src="./tournamentCreation.js" type="module"></script>
 </head>
 
 <body id="top">
@@ -68,7 +71,27 @@
     
               <h1 class="h1 title hero-title">Torneos</h1>
     
-            </div>
+            <div id="teamCreationSection">
+              <h2>Crear Equipo</h2>
+              <label for="teamName">Nombre del Equipo:</label>
+              <input type="text" id="teamName" required>
+              <br>
+              <label for="teamDescription">Descripción del Equipo:</label>
+              <textarea id="teamDescription" required></textarea>
+              <br>
+              <button id="createTeamBtn" onclick="createTeam()">Crear Equipo</button>
+           <div id="tournamentCreationSection">
+            <h2>Crear Torneo</h2>
+            <label for="tournamentName">Nombre del Torneo:</label>
+            <input type="text" id="tournamentName" required>
+            <br>
+            <label for="tournamentDescription">Descripción del Torneo:</label>
+            <textarea id="tournamentDescription" required></textarea>
+            <br>
+            <button id="createTournamentBtn">Crear Torneo</button>
+        </div>
+    </article>
+</main>
           </div>
         </body>
   <!-- 
