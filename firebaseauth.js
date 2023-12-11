@@ -1,8 +1,6 @@
 // firebaseauth.js
 import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { app } from "./firebaseConfig.js";
-
-// Asegúrate de tener la importación correcta para Firestore
 import { getFirestore, collection, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 const auth = getAuth(app);
@@ -17,8 +15,6 @@ setPersistence(auth, browserSessionPersistence)
     console.error("Error al configurar la persistencia:", error);
   });
 export { auth, provider, signInWithPopup, firestore };
-
-// Otras funciones relacionadas con Firebase, si las tienes
 
 export async function storeUserDataInFirestore(uid, displayName, email) {
     const usersCollection = collection(firestore, 'usuarios');

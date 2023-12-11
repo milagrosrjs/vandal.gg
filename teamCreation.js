@@ -20,12 +20,12 @@ document.getElementById('createTeamBtn').addEventListener('click', async () => {
         const docRef = await addDoc(teamsCollection, {
             nombre: teamName,
             descripcion: teamDescription,
-            miembros: [] // Puedes inicializar la lista de miembros aquí
+            miembros: [] 
         });
 
         alert(`Equipo creado con éxito. ID: ${docRef.id}`);
     } catch (error) {
         console.error('Error al crear el equipo:', error);
-        alert('Hubo un error al crear el equipo. Por favor, inténtalo de nuevo.');
+        alert('Hubo un error al crear el equipo. Por favor, debes estar logeado para realizar esta accion.');
     }
 });

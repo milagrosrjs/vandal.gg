@@ -24,6 +24,29 @@
     <script src="./teamCreation.js" type="module"></script>
     <script src="./tournamentCreation.js" type="module"></script>
 </head>
+<style>
+  /* Estilos de ejemplo, ajusta según sea necesario */
+  #teamCreationSection {
+      margin-top: 20px;
+  }
+
+  #teamCreationSection label {
+      display: block;
+      margin-bottom: 5px;
+      color: white;
+  }
+
+  #teamCreationSection input,
+  #teamCreationSection textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
 
 <body id="top">
     <!-- Encabezado de la tienda -->
@@ -53,6 +76,7 @@
             <span class="line line-2"></span>
             <span class="line line-3"></span>
           </button>
+
     
         </div>
       </header>
@@ -63,33 +87,24 @@
           <!-- 
             - #TIENDA
           -->
-    
           <div class="hero has-before" id="home">
             <div class="container">
-    
-              <p class="section-subtitle">¡Compite y gana!</p>
-    
-              <h1 class="h1 title hero-title">Torneos</h1>
-    
-            <div id="teamCreationSection">
-              <h2>Crear Equipo</h2>
-              <label for="teamName">Nombre del Equipo:</label>
-              <input type="text" id="teamName" required>
-              <br>
-              <label for="teamDescription">Descripción del Equipo:</label>
-              <textarea id="teamDescription" required></textarea>
-              <br>
-              <button id="createTeamBtn" onclick="createTeam()">Crear Equipo</button>
-           <div id="tournamentCreationSection">
-            <h2>Crear Torneo</h2>
-            <label for="tournamentName">Nombre del Torneo:</label>
-            <input type="text" id="tournamentName" required>
-            <br>
-            <label for="tournamentDescription">Descripción del Torneo:</label>
-            <textarea id="tournamentDescription" required></textarea>
-            <br>
-            <button id="createTournamentBtn">Crear Torneo</button>
+                <p class="section-subtitle">¡Compite y gana!</p>
+                <h1 class="h1 title hero-title">Torneos</h1>
+                <div id="teamCreationSection">
+                    <h2>Crear Equipo</h2>
+                    <label for="teamName">Nombre del Equipo:</label>
+                    <input type="text" id="teamName" required>
+                    <br>
+                    <label for="teamDescription">Descripción del Equipo:</label>
+                    <textarea id="teamDescription" required></textarea>
+                    <br>
+                    <button class="btn btn-primary" id="createTeamBtn" onclick="createTeam()">Crear Equipo</button>
+                </div>
+            </div>
         </div>
+    </article>
+</main>
     </article>
 </main>
           </div>

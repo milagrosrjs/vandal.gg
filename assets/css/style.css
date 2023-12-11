@@ -169,8 +169,20 @@
   
   ::-webkit-scrollbar-thumb { background-color: var(--bg-purple); }
   
-  
-  
+  .team-name {
+    position: absolute;
+    width: 200px; /* Ajusta el ancho del contenedor del equipo */
+    height: 70px; /* Ajusta la altura del contenedor del equipo */
+    line-height: 70px;
+    text-align: center;
+    background-color: #eb1010;
+    color: #fff;
+    font-size: 24px; /* Ajusta el tamaño del texto */
+    font-weight: bold;
+    border-radius: 50px;
+    transform-origin: center center;
+    transition: transform 3s ease-out;
+}
   
   
   /*-----------------------------------*\

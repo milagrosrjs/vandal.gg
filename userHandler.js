@@ -1,3 +1,4 @@
+//userHandler.js
 import { auth } from "./auth.js";
 import { storeUserDataInFirestore } from "./firebaseauth.js";
 
