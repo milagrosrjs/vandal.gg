@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,12 +115,12 @@
 
 
 
-
+      <a href="ruleta.html" class="btn" data-btn>Ver Ruleta</a>
 
       <!-- 
         - #UPCOMING
       -->
-
+<!-- 
       <section class="section upcoming" aria-labelledby="upcoming-label" id="tournament">
         <div class="container">
 
@@ -266,11 +267,81 @@
 
         </div>
       </section>
+ -->
 
+ <div class="carrusel-container">
+  <!-- Carrusel de torneos -->
+  <div id="torneoCarrusel" class="slick-carousel">
+    <div class="carousel-inner">
+      <!-- Contenido del carrusel -->
+    </div>
+    <button class="carousel-control-prev" type="button">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
 
+  <script type="module" src="./firebaseconfig.js" async defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
+    // Configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyApyVdfxlnp_J0wz1N3fAWGf9Kk2fswt5c",
+      authDomain: "vandallogin.firebaseapp.com",
+      projectId: "vandallogin",
+      storageBucket: "vandallogin.appspot.com",
+      messagingSenderId: "363237174575",
+      appId: "1:363237174575:web:6d6c7de8c5c199c91185da",
+      measurementId: "G-TRGDWCV8BX"
+    };
 
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
+    document.addEventListener('DOMContentLoaded', function () {
+      const torneosCollection = collection(db, 'torneos');
+      const carruselContainer = document.querySelector('.carousel-inner');
+
+      onSnapshot(torneosCollection, (snapshot) => {
+        carruselContainer.innerHTML = '';
+
+        snapshot.forEach((doc) => {
+          const torneo = doc.data();
+          const contenidoHTML = `
+            <div class="carousel-item">
+              <h3>${torneo.nombre}</h3>
+              <p>${torneo.equipo1} vs. ${torneo.equipo2}</p>
+              <p>Fecha: ${torneo.fecha} | Hora: ${torneo.hora}</p>
+            </div>
+          `;
+
+          carruselContainer.innerHTML += contenidoHTML;
+        });
+
+        // Configuración de Slick Carousel
+        $('.slick-carousel').slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+      });
+    });
+  </script>
+
+  <!-- Agrega la biblioteca Slick Carousel -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+</div>
       <!-- 
         - #NEWS
       -->

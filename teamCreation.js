@@ -1,5 +1,5 @@
 // teamCreation.js
-import { app } from "./firebaseConfig.js";
+import { app } from "./firebaseconfig.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 document.getElementById('createTeamBtn').addEventListener('click', async () => {
