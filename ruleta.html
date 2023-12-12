@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iKDErVR5tFue3+Y9uH8j1IoL73Ibr5L5pa4EKxBRZ/6DKE1uL+5I2I0j" crossorigin="anonymous">
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,20 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruleta de Equipos</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+
     <style>
-        /* Estilos específicos para la ruleta */
+        body {
+            background-color: #f8f9fa; /* Color de fondo general */
+            font-family: 'Work Sans', sans-serif; /* Fuentes de texto predeterminadas */
+        }
+
         .roulette-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 100vh;
+            margin-top: 50px; /* Ajuste de margen superior */
         }
 
         .roulette {
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
-            border: 5px solid #333;
+            border: 5px solid #343a40; /* Color del borde */
             overflow: hidden;
             position: relative;
         }
@@ -37,17 +45,20 @@
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 80%;
+            color: #fff; /* Color del texto */
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-out;
+            font-family: 'Oxanium', cursive; /* Aplica la fuente específica */
         }
 
-        /* Estilo para el botón de girar */
         #spinBtn {
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 1.2em;
-            cursor: pointer;
         }
 
-        /* Estilo para el mensaje de torneo creado */
         #resultMessage {
             margin-top: 20px;
             font-size: 1.2em;
@@ -57,24 +68,32 @@
     </style>
 </head>
 
-<body>
+<body class="bg-light">
+    <div class="container-fluid">
+        <!-- Contenedor principal de la ruleta -->
+        <div class="row justify-content-center">
+            <div class="col-md-6 roulette-container bg-white p-4 rounded shadow">
+                <div class="roulette" id="roulette">
+                    <!-- Contenido dinámico de la ruleta (se agregará con JavaScript) -->
+                </div>
 
-    <!-- Contenedor principal de la ruleta -->
-    <div class="roulette-container">
-        <div class="roulette" id="roulette">
-            <!-- Contenido dinámico de la ruleta (se agregará con JavaScript) -->
+                <!-- Botón para girar la ruleta -->
+                <button class="btn btn-primary" id="spinBtn">Girar la Ruleta</button>
+                <button class="btn btn-primary" id="backBtn">Volver</button>
+
+                <!-- Elemento para mostrar el mensaje de torneo creado -->
+                <p id="resultMessage"></p>
+            </div>
         </div>
-
-        <!-- Botón para girar la ruleta -->
-        <button class="btn btn-primary" id="spinBtn">GIRA</button>
-
-        <!-- Elemento para mostrar el mensaje de torneo creado -->
-        <p id="resultMessage"></p>
     </div>
 
     <!-- JavaScript para la lógica de la ruleta -->
     <script type="module" src="./assets/js/roulette.mjs"></script>
 
+    <!-- Agrega los scripts de Bootstrap (jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-r/aiCh3OnuK39EStkOf0tHZpXfWVNS60j3IqwnE9nVRbAUcf4G+AB8pOB6DdI66P" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyJ8XCpBk6fFO2RY4Pac8LwBqoQ1d8/5G9" crossorigin="anonymous"></script>
 </body>
 
 </html>

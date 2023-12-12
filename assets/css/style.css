@@ -169,20 +169,14 @@
   
   ::-webkit-scrollbar-thumb { background-color: var(--bg-purple); }
   
-  .team-name {
-    position: absolute;
-    width: 200px; /* Ajusta el ancho del contenedor del equipo */
-    height: 70px; /* Ajusta la altura del contenedor del equipo */
-    line-height: 70px;
-    text-align: center;
-    background-color: #eb1010;
-    color: #fff;
-    font-size: 24px; /* Ajusta el tamaño del texto */
-    font-weight: bold;
-    border-radius: 50px;
-    transform-origin: center center;
-    transition: transform 3s ease-out;
+  .team-circle {
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Asegura que cualquier sombra o borde redondeado se aplique correctamente */
 }
+
+
+
   
   
   /*-----------------------------------*\
@@ -453,6 +447,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
   }
   
   .upcoming-card::before {
