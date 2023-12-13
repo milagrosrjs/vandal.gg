@@ -1,5 +1,5 @@
 // roulette.mjs
-import { db } from "../../firebaseconfig.js";
+import { db } from "./firebaseconfig.js";
 import { getFirestore, collection, getDocs, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
