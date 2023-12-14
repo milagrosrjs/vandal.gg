@@ -1,6 +1,6 @@
 // firebaseauth.js
 import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { app } from "./firebaseConfig.js";
+import { app } from "./firebaseconfig.js";
 import { getFirestore, collection, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 const auth = getAuth(app);
