@@ -289,21 +289,10 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { app } from "./firebaseconfig.js";
     import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-    // Configuración de Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyApyVdfxlnp_J0wz1N3fAWGf9Kk2fswt5c",
-      authDomain: "vandallogin.firebaseapp.com",
-      projectId: "vandallogin",
-      storageBucket: "vandallogin.appspot.com",
-      messagingSenderId: "363237174575",
-      appId: "1:363237174575:web:6d6c7de8c5c199c91185da",
-      measurementId: "G-TRGDWCV8BX"
-    };
-
-    const app = initializeApp(firebaseConfig);
+  
     const db = getFirestore(app);
 
     document.addEventListener('DOMContentLoaded', function () {
