@@ -19,10 +19,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
     rel="stylesheet">
-    <script src="./firebaseConfig.js" type="module"></script>
+    <script src="./firebaseconfig.js" type="module"></script>
     <script src="./auth.js" type="module"></script>
     <script src="./teamCreation.js" type="module"></script>
-    <script src="./tournamentCreation.js" type="module"></script>
 </head>
 <style>
   /* Estilos de ejemplo, ajusta según sea necesario */
@@ -99,7 +98,7 @@
                     <label for="teamDescription">Descripción del Equipo:</label>
                     <textarea id="teamDescription" required></textarea>
                     <br>
-                    <button class="btn btn-primary" id="createTeamBtn" onclick="createTeam()">Crear Equipo</button>
+                    <button id="createTeamBtn">Crear Equipo</button>
                 </div>
             </div>
         </div>
@@ -271,7 +270,6 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
 
   <!-- 
     - ionicon link
