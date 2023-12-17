@@ -7,6 +7,8 @@ const auth = getAuth(app);
 const firestore = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
+let lastSignInTime = 0;
+
 setPersistence(auth, browserSessionPersistence)
   .then(() => {
     // La sesión de usuario se mantendrá después de actualizar la página
@@ -14,23 +16,45 @@ setPersistence(auth, browserSessionPersistence)
   .catch((error) => {
     console.error("Error al configurar la persistencia:", error);
   });
+
 export { auth, provider, signInWithPopup, firestore };
 
 export async function storeUserDataInFirestore(uid, displayName, email) {
-    const usersCollection = collection(firestore, 'usuarios');
-    const userDoc = doc(usersCollection, uid);
+  const usersCollection = collection(firestore, 'usuarios');
+  const userDoc = doc(usersCollection, uid);
 
-    try {
-        const docSnapshot = await getDoc(userDoc);
+  try {
+    const docSnapshot = await getDoc(userDoc);
 
-        if (docSnapshot.exists()) {
-            // Usuario existente, puedes actualizar la información si es necesario
-            // await updateDoc(userDoc, { displayName, email, ... });
-        } else {
-            // Usuario no existe, crea un nuevo documento
-            await setDoc(userDoc, { displayName, email });
-        }
-    } catch (error) {
-        console.error("Error al acceder a Firestore:", error);
+    if (docSnapshot.exists()) {
+      // Usuario existente, puedes actualizar la información si es necesario
+      // await updateDoc(userDoc, { displayName, email, ... });
+    } else {
+      // Usuario no existe, crea un nuevo documento
+      await setDoc(userDoc, { displayName, email });
     }
+  } catch (error) {
+    console.error("Error al acceder a Firestore:", error);
+  }
+}
+
+export async function signInWithThrottle() {
+  const currentTime = new Date().getTime();
+  const timeDiff = currentTime - lastSignInTime;
+
+  // Permitir iniciar sesión solo si han pasado al menos 30 segundos
+  if (timeDiff >= 30000) {
+    try {
+      lastSignInTime = currentTime;
+      const result = await signInWithPopup(auth, provider);
+      const { user } = result;
+      storeUserDataInFirestore(user.uid, user.displayName, user.email);
+      return result;
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      throw error;
+    }
+  } else {
+    console.warn("Debe esperar al menos 30 segundos entre iniciativas de sesión.");
+  }
 }

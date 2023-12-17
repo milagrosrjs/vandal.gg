@@ -71,124 +71,71 @@
     
             </div>
           </div>   
+<div id="contenedor-productos" class="row"></div>
+<button class="btn btn-primary btn-agregar" data-nombre="Producto 1" data-precio="10.99">Agregar al carrito</button>
 
           <!-- Botón de "Carrito" con ícono y cantidad -->
           <a href="carrito.html" class="btn btn-primary d-flex justify-content-center align-items-center ml-auto">
             <i class="fas fa-shopping-cart mr-2"></i> Carrito
             <span class="badge badge-light ml-1" id="contador-carrito">0</span>
           </a>
-    <!-- Lista de productos -->
-    <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-4 mb-4">
-          <div class="card">
-              <img src="./assets/images/producto1.jpg" alt="Producto 1" class="card-img-top">
-              <div class="card-body">
-                  <h2 class="card-title">Producto 1</h2>
-                  <p class="card-text">Descripción del Producto 1.</p>
-                  <p class="card-text">Precio: $XX.XX</p>
-                  <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4 mb-4">
-          <div class="card">
-              <img src="./assets/images/producto2.jpg" alt="Producto 2" class="card-img-top">
-              <div class="card-body">
-                  <h2 class="card-title">Producto 2</h2>
-                  <p class="card-text">Descripción del Producto 2.</p>
-                  <p class="card-text">Precio: $XX.XX</p>
-                  <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-            <img src="./assets/images/producto3.jpg" alt="Producto 3" class="card-img-top">
-            <div class="card-body">
-                <h2 class="card-title">Producto 3</h2>
-                <p class="card-text">Descripción del Producto 2.</p>
-                <p class="card-text">Precio: $XX.XX</p>
-                <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-          <img src="./assets/images/producto4.jpg" alt="Producto 4" class="card-img-top">
-          <div class="card-body">
-              <h2 class="card-title">Producto 4</h2>
-              <p class="card-text">Descripción del Producto 2.</p>
-              <p class="card-text">Precio: $XX.XX</p>
-              <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
-          </div>
-      </div>
-  </div>
-  <div class="col-md-4 mb-4">
-    <div class="card">
-        <img src="./assets/images/producto5.jpg" alt="Producto 5" class="card-img-top">
-        <div class="card-body">
-            <h2 class="card-title">Producto 5</h2>
-            <p class="card-text">Descripción del Producto 2.</p>
-            <p class="card-text">Precio: $XX.XX</p>
-            <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
-        </div>
-    </div>
-</div>
-<div class="col-md-4 mb-4">
-  <div class="card">
-      <img src="./assets/images/producto6.jpg" alt="Producto 6" class="card-img-top">
-      <div class="card-body">
-          <h2 class="card-title">Producto 6</h2>
-          <p class="card-text">Descripción del Producto 2.</p>
-          <p class="card-text">Precio: $XX.XX</p>
-          <button class="btn btn-primary btn-agregar">Agregar al carrito</button>
-      </div>
-  </div>
-</div>
-<script>
-  // Obtén una referencia al elemento del contador y al botón del carrito
-  var contadorCarrito = document.getElementById("contador-carrito");
+          <script type="module" src="./app.js"></script>
 
-  // Inicializa el contador
-  var contador = 0;
-
-  // Función para actualizar el contador y el botón del carrito
-  function actualizarCarrito() {
-    contador++;
-    contadorCarrito.textContent = contador;
-  }
-
-  // Agrega un evento clic a todos los botones "Agregar al carrito"
-  var botonesAgregar = document.querySelectorAll(".btn-agregar");
-  botonesAgregar.forEach(function(boton) {
-    boton.addEventListener("click", actualizarCarrito);
-  });
-</script>
-<script>
-  // Función para agregar un producto al carrito
-  function agregarAlCarrito(nombre, precio) {
-      // Recupera la lista de productos en el carrito desde localStorage (si existe)
-      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-      // Agrega el producto seleccionado al carrito
-      carrito.push({ nombre, precio });
-
-      // Guarda el carrito actualizado en localStorage
-      localStorage.setItem("carrito", JSON.stringify(carrito));
-  }
-
-  // Agregar un evento clic a todos los botones "Agregar al carrito"
-  const botonesAgregar = document.querySelectorAll(".btn-agregar");
-  botonesAgregar.forEach(function (boton) {
-      boton.addEventListener("click", function () {
-          const nombre = boton.getAttribute("data-nombre");
-          const precio = parseFloat(boton.getAttribute("data-precio"));
-          agregarAlCarrito(nombre, precio);
-      });
-  });
-</script>
-
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Obtén una referencia al elemento del contador y al botón del carrito
+                var contadorCarrito = document.getElementById("contador-carrito");
+        
+                // Inicializa el contador
+                var contador = 0;
+        
+                // Función para actualizar el contador y el botón del carrito
+                function actualizarCarrito() {
+                    contador++;
+                    contadorCarrito.textContent = contador;
+                }
+                
+                // Intenta obtener una referencia a los botones "Agregar al carrito"
+                var botonesAgregar = document.querySelectorAll(".btn-agregar");
+        
+                // Verifica si se encontraron botones
+                if (botonesAgregar.length === 0) {
+                    console.error("No se encontraron botones 'Agregar al carrito'");
+                }
+        
+                botonesAgregar.forEach(function (boton) {
+                    boton.addEventListener("click", function () {
+                        // Agregamos mensajes de consola para verificar
+                        console.log("Botón 'Agregar al carrito' clicado");
+        
+                        const nombre = boton.getAttribute("data-nombre");
+                        const precio = parseFloat(boton.getAttribute("data-precio"));
+        
+                        // Agregamos mensajes de consola para verificar
+                        console.log("Nombre del producto:", nombre);
+                        console.log("Precio del producto:", precio);
+        
+                        agregarAlCarrito(nombre, precio);
+                        actualizarCarrito(); // Agrega esta línea para actualizar el carrito cuando se agrega un producto
+                    });
+                });
+        
+                // Función para agregar un producto al carrito
+                function agregarAlCarrito(nombre, precio) {
+                    // Recupera la lista de productos en el carrito desde localStorage (si existe)
+                    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        
+                    // Agrega el producto seleccionado al carrito
+                    carrito.push({ nombre, precio });
+        
+                    // Guarda el carrito actualizado en localStorage
+                    localStorage.setItem("carrito", JSON.stringify(carrito));
+        
+                    // Agregamos mensaje de consola para verificar
+                    console.log("Producto agregado al carrito:", { nombre, precio });
+                }
+            });
+        </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
@@ -349,15 +296,7 @@
   -->
 
   <div class="cursor" data-cursor></div>
-
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
+  
 
   <!-- 
     - ionicon link
