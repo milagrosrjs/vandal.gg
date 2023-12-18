@@ -41,38 +41,33 @@
 
 <body id="top">
 <!-- Encabezado de la tienda -->
-  <header class="header active" data-header>
-    <div class="container">
-
-      <a href="#" class="logo">
-        <img src="./assets/images/logo.png" width="50" height="25" alt="vandalgg home">
-      </a>
-
-     
-  <li class="navbar-item">
-    <a href="torneos.html" class="navbar-link" data-nav-link>Torneos</a>
-  </li>
-
-  <li class="navbar-item">
-    <a href="foros.html" class="navbar-link" data-nav-link>Foros</a>
-  </li>
-<ul>
-  <li class="navbar-item">
-    <a href="tienda.html" class="navbar-link" data-nav-link>Tienda</a>
-  </li>
-</ul>
-      </nav>
-      <a href="login.html" class="btn" data-btn>Inicia Sesión</a>
-      <a href="#" class="btn" data-btn>Regístrate</a>
-
-      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-        <span class="line line-3"></span>
-      </button>
-
-    </div>
-  </header>
+<header class="header active" data-header>
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="./assets/images/logo.png" width="50" height="25" alt="vandalgg home">
+    </a>
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li class="navbar-item">
+          <a href="torneos.html" class="navbar-link" data-nav-link>Torneos</a>
+        </li>
+        <li class="navbar-item">
+          <a href="foros.html" class="navbar-link" data-nav-link>Foros</a>
+        </li>
+        <li class="navbar-item">
+          <a href="tienda.html" class="navbar-link" data-nav-link>Tienda</a>
+        </li>
+      </ul>
+    </nav>
+    <a href="login.html" class="btn" data-btn>Inicia Sesión</a>
+    <a href="#" class="btn" data-btn>Regístrate</a>
+    <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+      <span class="line line-1"></span>
+      <span class="line line-2"></span>
+      <span class="line line-3"></span>
+    </button>
+  </div>
+</header>
   <main>
     <article>
 
@@ -104,162 +99,9 @@
 
       <a href="ruleta.html" class="btn" data-btn>Ver Ruleta</a>
 
-      <!-- 
-        - #UPCOMING
-      -->
-<!-- 
-      <section class="section upcoming" aria-labelledby="upcoming-label" id="tournament">
-        <div class="container">
-
-          <h1 class="section-subtitle" id="upcoming-label" data-reveal="bottom">
-            Próximos Torneos
-          </h1>
-          <h2 class="h2 section-title" data-reveal="bottom">
-            Compite en <br> increíbles <span class="span">Torneos</span>
-          </h2>
-          <p class="section-text" data-reveal="bottom">
-            ¿Quieres demostrar que tu equipo tiene las capacidades para derrotar a todos?
-          </p>
-          <a href="ruleta.html" class="btn" data-btn>Ver Ruleta</a>
-
-          <ol class="upcoming-list">
-
-            <li class="upcoming-item">
-
-              <div class="upcoming-card left has-before" data-reveal="left">
-
-                <img src="./assets/images/team-logo-1.png" width="86" height="81" loading="lazy"
-                  alt="Spicy Team" class="card-banner">
-
-                <h3 class="h3 card-title">Spicy Team</h3>
-
-                <div class="card-meta">Grupo 4 | 6to Partido</div>
-
-              </div>
-
-              <div class="upcoming-time" data-reveal="bottom">
-                <time class="time" datetime="10:00">20:00</time>
-
-                <time class="date" datetime="2022-05-25">29 Dic. 2023</time>
-
-                <div class="social-wrapper">
-                  <a href="#" class="social-link">
-                    <ion-icon name="logo-youtube"></ion-icon>
-                  </a>
-
-                  <a href="#" class="social-link">
-                    <ion-icon name="logo-twitch"></ion-icon>
-                  </a>
-                </div>
-              </div>
-
-              <div class="upcoming-card right has-before" data-reveal="right">
-
-                <img src="./assets/images/team-logo-2.png" width="86" height="81" loading="lazy"
-                  alt="Ready Squad" class="card-banner">
-
-                <h3 class="h3 card-title">Ready Squad</h3>
-
-                <div class="card-meta">Grupo 4 | 6TO PARTIDO</div>
-
-              </div>
-
-            </li>
-
-            <li class="upcoming-item">
-
-              <div class="upcoming-card left has-before" data-reveal="left">
-
-                <img src="./assets/images/team-logo-3.png" width="86" height="81" loading="lazy"
-                  alt="BlackHackers" class="card-banner">
-
-                <h3 class="h3 card-title">BlackHackers</h3>
-
-                <div class="card-meta">Grupo 5 | 2do partido</div>
-
-              </div>
-
-              <div class="upcoming-time" data-reveal="bottom">
-                <time class="time" datetime="12:30">12:30</time>
-
-                <time class="date" datetime="2024-01-10">9 Ene. 2024</time>
-
-                <div class="social-wrapper">
-                  <a href="#" class="social-link">
-                    <ion-icon name="logo-youtube"></ion-icon>
-                  </a>
-
-                  <a href="#" class="social-link">
-                    <ion-icon name="logo-twitch"></ion-icon>
-                  </a>
-                </div>
-              </div>
-
-              <div class="upcoming-card right has-before" data-reveal="right">
-
-                <img src="./assets/images/team-logo-4.png" width="86" height="81" loading="lazy"
-                  alt="Shinee Team" class="card-banner">
-
-                <h3 class="h3 card-title">Shinee Team</h3>
-
-                <div class="card-meta">Grupo 5 | 2do partido</div>
-
-              </div>
-
-            </li>
-
-            <li class="upcoming-item">
-
-              <div class="upcoming-card left has-before" data-reveal="left">
-
-                <img src="./assets/images/team-logo-5.png" width="86" height="81" loading="lazy"
-                  alt="Laabel Team" class="card-banner">
-
-                <h3 class="h3 card-title">Laabel Team</h3>
-
-                <div class="card-meta">Grupo 9 | 2do partido</div>
-
-              </div>
-
-              <div class="upcoming-time" data-reveal="bottom">
-                <time class="time" datetime="04:20">19:30</time>
-
-                <time class="date" datetime="2024-12-15">9 May. 2024</time>
-
-                <div class="social-wrapper">
-                  <a href="#" class="social-link">
-                    <ion-icon name="logo-youtube"></ion-icon>
-                  </a>
-
-                  <a href="#" class="social-link">
-                    <ion-icon name="logo-twitch"></ion-icon>
-                  </a>
-                </div>
-              </div>
-
-              <div class="upcoming-card right has-before" data-reveal="right">
-
-                <img src="./assets/images/team-logo-6.png" width="86" height="81" loading="lazy"
-                  alt="Nightmare Crew" class="card-banner">
-
-                <h3 class="h3 card-title">Nightmare Crew</h3>
-
-                <div class="card-meta">Grupo 9 | 2do partido</div>
-
-              </div>
-
-            </li>
-
-          </ol>
-
-        </div>
-      </section>
- -->
-
- <div class="carrusel-container">
-  <!-- Carrusel de torneos -->
-  <div id="torneoCarrusel" class="slick-carousel">
-    <div class="carousel-inner">
+      <div class="carrusel-container">
+        <div id="torneoCarrusel" class="slick-carousel">
+          <div class="carousel-inner">
       <!-- Contenido del carrusel -->
     </div>
     <button class="carousel-control-prev" type="button">
@@ -318,163 +160,157 @@
   <!-- Agrega la biblioteca Slick Carousel -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-</div>
-      <!-- 
-        - #NEWS
-      -->
 
-      <section class="section news" aria-label="our latest news" id="news">
-        <div class="container">
-
-          <p class="section-subtitle" data-reveal="bottom">¿Qué está pasando?</p>
-
-          <h2 class="h2 section-title" data-reveal="bottom">
-            Chats y <span class="span">Foros</span>
-          </h2>
-
-          <p class="section-text" data-reveal="bottom">
-            Mantente siempre conectado, comunícate con la comunidad activa, divertida y con ¡ganas de jugar!
-          </p>
-
-          <ul class="news-list">
-
-            <li data-reveal="bottom">
-              <div class="news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
-                  <img src="./assets/images/news-1.jpg" width="600" height="400" loading="lazy"
-                    alt="Innovative Business All Over The World." class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <a href="#" class="card-tag">Foro / League Of Legends</a>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
-
-                      <time class="card-meta-text" datetime="2022-01-01">Ene 15 2023</time>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
-                      <p class="card-meta-text">Akalyy</p>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">¿Katarina debería jugarse AP o AD?</a>
-                  </h3>
-
-                  <p class="card-text">
-                    En un meta en constante cambio, ¿Cual build se adapta mejor a las habilidades de Katarina?
-                  </p>
-
-                  <a href="#" class="link has-before">Comenta</a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li data-reveal="bottom">
-              <div class="news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
-                  <img src="./assets/images/news-2.jpg" width="600" height="400" loading="lazy"
-                    alt="How To Start Initiating An Startup In Few Days." class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <a href="#" class="card-tag">Foro / Valorant</a>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
-
-                      <time class="card-meta-text" datetime="2022-01-01">Feb 01 2023</time>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
-                      <p class="card-meta-text">Boaster</p>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Los mejores peaks en Bind para este parche.</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Te cuento lo que se está jugando a nivel competitivo en el mapa de Bind y qué tiene mejor winrate...
-                  </p>
-
-                  <a href="#" class="link has-before">Lee más</a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li data-reveal="bottom">
-              <div class="news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
-                  <img src="./assets/images/news-3.jpg" width="600" height="400" loading="lazy"
-                    alt="Financial Experts Support Help You To Find Out." class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <a href="#" class="card-tag">Foro / Rainbow Six Siege</a>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
-
-                      <time class="card-meta-text" datetime="2022-01-01">Mar 19 2023</time>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
-                      <p class="card-meta-text">Beauloo</p>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">La 1.5x está rota ¿Posible nerf?</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Todos conocemos el potencial de la mira 1.5x en la defensa. Conoce sus exagerados winrates.
-                  </p>
-
-                  <a href="#" class="link has-before">Lee más</a>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-    </article>
+  
   </main>
+  <section class="section news" aria-label="our latest news" id="news">
+    <div class="container">
 
+      <p class="section-subtitle" data-reveal="bottom">¿Qué está pasando?</p>
+
+      <h2 class="h2 section-title" data-reveal="bottom">
+        Chats y <span class="span">Foros</span>
+      </h2>
+
+      <p class="section-text" data-reveal="bottom">
+        Mantente siempre conectado, comunícate con la comunidad activa, divertida y con ¡ganas de jugar!
+      </p>
+
+      <ul class="news-list">
+
+        <li data-reveal="bottom">
+          <div class="news-card">
+
+            <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
+              <img src="./assets/images/news-1.jpg" width="600" height="400" loading="lazy"
+                alt="Innovative Business All Over The World." class="img-cover">
+            </figure>
+
+            <div class="card-content">
+
+              <a href="#" class="card-tag">Foro / League Of Legends</a>
+
+              <ul class="card-meta-list">
+
+                <li class="card-meta-item">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+
+                  <time class="card-meta-text" datetime="2022-01-01">Ene 15 2023</time>
+                </li>
+
+                <li class="card-meta-item">
+                  <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+                  <p class="card-meta-text">Akalyy</p>
+                </li>
+
+              </ul>
+
+              <h3 class="h3">
+                <a href="#" class="card-title">¿Katarina debería jugarse AP o AD?</a>
+              </h3>
+
+              <p class="card-text">
+                En un meta en constante cambio, ¿Cual build se adapta mejor a las habilidades de Katarina?
+              </p>
+
+              <a href="#" class="link has-before">Comenta</a>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li data-reveal="bottom">
+          <div class="news-card">
+
+            <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
+              <img src="./assets/images/news-2.jpg" width="600" height="400" loading="lazy"
+                alt="How To Start Initiating An Startup In Few Days." class="img-cover">
+            </figure>
+
+            <div class="card-content">
+
+              <a href="#" class="card-tag">Foro / Valorant</a>
+
+              <ul class="card-meta-list">
+
+                <li class="card-meta-item">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+
+                  <time class="card-meta-text" datetime="2022-01-01">Feb 01 2023</time>
+                </li>
+
+                <li class="card-meta-item">
+                  <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+                  <p class="card-meta-text">Boaster</p>
+                </li>
+
+              </ul>
+
+              <h3 class="h3">
+                <a href="#" class="card-title">Los mejores peaks en Bind para este parche.</a>
+              </h3>
+
+              <p class="card-text">
+                Te cuento lo que se está jugando a nivel competitivo en el mapa de Bind y qué tiene mejor winrate...
+              </p>
+
+              <a href="#" class="link has-before">Lee más</a>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li data-reveal="bottom">
+          <div class="news-card">
+
+            <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
+              <img src="./assets/images/news-3.jpg" width="600" height="400" loading="lazy"
+                alt="Financial Experts Support Help You To Find Out." class="img-cover">
+            </figure>
+
+            <div class="card-content">
+
+              <a href="#" class="card-tag">Foro / Rainbow Six Siege</a>
+
+              <ul class="card-meta-list">
+
+                <li class="card-meta-item">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+
+                  <time class="card-meta-text" datetime="2022-01-01">Mar 19 2023</time>
+                </li>
+
+                <li class="card-meta-item">
+                  <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+                  <p class="card-meta-text">Beauloo</p>
+                </li>
+
+              </ul>
+
+              <h3 class="h3">
+                <a href="#" class="card-title">La 1.5x está rota ¿Posible nerf?</a>
+              </h3>
+
+              <p class="card-text">
+                Todos conocemos el potencial de la mira 1.5x en la defensa. Conoce sus exagerados winrates.
+              </p>
+
+              <a href="#" class="link has-before">Lee más</a>
+
+            </div>
+
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+</section>
 
 
 
@@ -634,14 +470,6 @@
 
   <div class="cursor" data-cursor></div>
 
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
 
   <!-- 
     - ionicon link

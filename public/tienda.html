@@ -25,8 +25,9 @@
 </head>
 
 <body id="top">
-    <!-- Encabezado de la tienda -->
-    <header class="header active" data-header>
+  <!-- Encabezado de la tienda -->
+  <header class="header active" data-header>
+      <div class="container">
         <div class="container">
     
           <a href="#" class="logo">
@@ -58,27 +59,25 @@
     <main>
         <article>
     
-          <!-- 
-            - #TIENDA
-          -->
-    
-          <div class="hero has-before" id="home">
-            <div class="container">
-    
+         <!-- #TIENDA -->
+         <div class="hero has-before" id="home">
+          <div class="container">
               <p class="section-subtitle">Gasta tus Vandal Coins</p>
-    
               <h1 class="h1 title hero-title">Tienda</h1>
-    
-            </div>
-          </div>   
-<div id="contenedor-productos" class="row"></div>
+          </div>
+      </div>   
+ <!-- Contenedor de productos centrado -->
+ <div class="container">
+  <div id="contenedor-productos" class="row justify-content-center"></div>
+</div>
 
-          <!-- Botón de "Carrito" con ícono y cantidad -->
-          <a href="carrito.html" class="btn btn-primary d-flex justify-content-center align-items-center ml-auto">
-            <i class="fas fa-shopping-cart mr-2"></i> Carrito
-            <span class="badge badge-light ml-1" id="contador-carrito">0</span>
-          </a>
-          <script type="module" src="./app.js"></script>
+<!-- Botón de "Carrito" con ícono y cantidad -->
+<a href="carrito.html" class="btn btn-primary d-flex justify-content-center align-items-center ml-auto">
+  <i class="fas fa-shopping-cart mr-2"></i> Carrito
+  <span class="badge badge-light ml-1" id="contador-carrito">0</span>
+</a>
+
+<script type="module" src="./app.js"></script>
 
           <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -97,10 +96,7 @@
                 // Intenta obtener una referencia a los botones "Agregar al carrito"
                 var botonesAgregar = document.querySelectorAll(".btn-agregar");
         
-                // Verifica si se encontraron botones
-                if (botonesAgregar.length === 0) {
-                    console.error("No se encontraron botones 'Agregar al carrito'");
-                }
+               
         
                 botonesAgregar.forEach(function (boton) {
                     boton.addEventListener("click", function () {

@@ -1,13 +1,13 @@
 // app.js
 import { db } from "./firebaseconfig.js";
-import { auth, currentUser } from './auth.js'; // Asegúrate de importar currentUser correctamente
+import { auth, currentUser } from './auth.js';
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 // Función para obtener los productos de la base de datos
 async function obtenerProductos() {
     const productosCollection = collection(db, 'productos');
     const productosSnapshot = await getDocs(productosCollection);
-    const productos = productosSnapshot.docs.map(doc => doc.data());
+    const productos = productosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
     return productos;
 }
@@ -46,18 +46,26 @@ function actualizarCarrito() {
         contadorCarrito.textContent = contador;
     }
 }
+// Define el tamaño deseado de la imagen
+const IMG_WIDTH = 20;
+const IMG_HEIGHT = 20;
 
-// Función para renderizar los productos en el HTML
 function renderizarProductos(productos) {
     const contenedorProductos = document.getElementById('contenedor-productos');
+    
+    // Limpiar los eventos clic existentes antes de renderizar los productos
+    contenedorProductos.innerHTML = '';
 
     productos.forEach(producto => {
         const card = document.createElement('div');
         card.className = 'col-md-4 mb-4';
 
+        // Asegúrate de que la propiedad "imagen" exista en tu objeto de producto
+        const imageUrl = producto.imagen || ''; 
+
         card.innerHTML = `
             <div class="card">
-                <img src="${producto.imagen}">
+                <img src="${imageUrl}" width="${IMG_WIDTH}" height="${IMG_HEIGHT}" class="card-img-top" alt="${producto.nombre}">
                 <div class="card-body">
                     <h2 class="card-title">${producto.nombre}</h2>
                     <p class="card-text">${producto.descripcion}</p>
@@ -70,27 +78,23 @@ function renderizarProductos(productos) {
         `;
 
         contenedorProductos.appendChild(card);
-    });
 
-    // Elimina los manejadores de eventos existentes antes de agregar nuevos
-    const botonesAgregar = document.querySelectorAll('.btn-agregar');
-    botonesAgregar.forEach(function (boton) {
-        boton.removeEventListener('click', agregarAlCarrito);
-    });
-
-    // Agrega un evento clic a todos los botones "Agregar al carrito"
-    botonesAgregar.forEach(function (boton) {
-        boton.addEventListener('click', function () {
-            const nombre = boton.getAttribute('data-nombre');
-            const precio = parseFloat(boton.getAttribute('data-precio'));
-            const producto = { nombre, precio };
-            agregarAlCarrito(producto);
+        // Agrega un evento clic a todos los botones "Agregar al carrito"
+        const botonesAgregar = card.querySelectorAll('.btn-agregar');
+        botonesAgregar.forEach(function (boton) {
+            boton.addEventListener('click', function () {
+                const nombre = boton.getAttribute('data-nombre');
+                const precio = parseFloat(boton.getAttribute('data-precio'));
+                const producto = { nombre, precio };
+                agregarAlCarrito(producto);
+            });
         });
     });
 
     // Actualiza el contador después de renderizar los productos
     actualizarCarrito();
 }
+
 // Inicializa el carrito en localStorage si no existe
 if (!localStorage.getItem('carrito')) {
     localStorage.setItem('carrito', JSON.stringify([]));
