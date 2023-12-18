@@ -102,3 +102,4 @@ async function updateTeamImage(teamId, imageUrl) {
 }
 
 document.getElementById('createTeamBtn').addEventListener('click', createTeam);
+export { currentUser };

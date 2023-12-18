@@ -15,4 +15,7 @@ setPersistence(auth, browserSessionPersistence)
     console.error("Error al configurar la persistencia:", error);
   });
 
-export { auth, provider, signInWithPopup, firestore };
+// Exporta el método para obtener el usuario actual
+const currentUser = () => auth.currentUser;
+
+export { auth, provider, signInWithPopup, firestore, currentUser };
