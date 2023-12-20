@@ -1,3 +1,4 @@
+<!-- carrito.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <h1>Carrito de Compras</h1>
-    <ul id="lista-carrito">
-        <!-- Aquí se mostrarán los productos seleccionados por el usuario -->
-    </ul>
+    <script type="module" src="./app.js"></script>
+    <div class="container" id="contenedor-productos"> 
+        <h1 class="titulo">Carrito de Compras</h1>
 
-    <script src="./app.js"></script>
+        <ul id="lista-carrito" class="carrito-lista">
+            <!-- Aquí se mostrarán los productos seleccionados por el usuario -->
+        </ul>
+
+        <div class="total">
+            <span>Total:</span>
+            <span id="total-carrito">$0.00</span>
+        </div>
+    </div>
 </body>
 </html>
