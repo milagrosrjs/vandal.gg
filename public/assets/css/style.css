@@ -479,7 +479,22 @@
     padding-inline: 20px;
     clip-path: var(--clip-path-3);
   }
+  .estadisticacard {
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+  } 
+  .estadisticacard-container {
+    margin-bottom: 20px; /* Ajusta según sea necesario */
+  }
   
+  .estadisticacard img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+    display: block;
+  margin: 0 auto;
+  }
   .news-card :is(.card-meta-list, .card-meta-item) {
     display: flex;
     align-items: center;
@@ -662,7 +677,7 @@
   .back-top-btn {
     position: fixed;
     bottom: 10px;
-    right: 20px;
+    left: 20px;  /* Cambié 'right' a 'left' */
     width: 50px;
     height: 50px;
     background-image: var(--gradient-1);
