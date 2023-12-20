@@ -1,5 +1,5 @@
 // En tu archivo JavaScript
-import { auth } from "./firebaseauth.js";
+import { auth } from "./auth.js";
 
 const userDataContainer = document.getElementById('userDataContainer');
 
