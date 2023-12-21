@@ -1,4 +1,5 @@
 // firebaseauth.js
+// firebaseauth.js
 import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { app } from "./firebaseconfig.js";
 import { getFirestore, collection, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
@@ -6,7 +7,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-s
 
 const auth = getAuth(app);
 const firestore = getFirestore(app);
-const storage = getStorage(app);
+const storage = getStorage(app);  // Asegúrate de tener esta línea en tu código
 const provider = new GoogleAuthProvider();
 
 let lastSignInTime = 0;

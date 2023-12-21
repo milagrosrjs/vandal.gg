@@ -1,59 +1,97 @@
-import { auth, firestore, storage } from "./firebaseauth.js";
+// perfil.js
+import { auth } from "./firebaseauth.js";
+import { doc, updateDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js';
+import { firestore, storage } from './firebaseconfig.js';
 
-const userDataContainer = document.getElementById('userDataContainer');
-const iconForm = document.getElementById('iconForm');
-const iconInput = document.getElementById('iconInput');
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    auth.onAuthStateChanged(async (user) => {
+      const messageContainer = document.getElementById('messageContainer');
+      const userDataContainer = document.getElementById('userDataContainer');
+      const userIcon = document.getElementById('userIcon');
+      const iconForm = document.getElementById('iconForm');
+      const iconInput = document.getElementById('iconInput');
 
-// Observador de cambios en la autenticación
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    // El usuario está autenticado
-    const userDataHTML = `
-      <p>Nombre: ${user.displayName}</p>
-      <p>Email: ${user.email}</p>
-    `;
-    userDataContainer.innerHTML = userDataHTML;
+      if (user) {
+        // El usuario está autenticado
 
-    // Agregar el evento de cambio al input de tipo archivo
-    iconInput.addEventListener('change', (e) => {
-      const selectedFile = e.target.files[0];
-      if (selectedFile) {
-        console.log('Archivo seleccionado:', selectedFile);
-      }
-    });
+        // Obtener la información del usuario desde Firestore
+        const userDoc = await getDoc(doc(firestore, 'usuarios', user.uid));
 
-    // Agregar el evento de envío del formulario
-    iconForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          
+          // Mostrar el icono, nombre y correo del usuario
+          if (userIcon) {
+            userIcon.src = userData.iconURL;
+          }
 
-      const iconFile = iconInput.files[0];
-      if (iconFile) {
-        try {
-          // Subir el icono a Firebase Storage
-          const storageRef = storage.ref();
-          const iconRef = storageRef.child(`icons/${user.uid}/profileIcon`);
+          const userDataHTML = `
+            <p>Nombre: ${user.displayName}</p>
+            <p>Email: ${user.email}</p>
+          `;
 
-          const snapshot = await iconRef.put(iconFile);
-          console.log('Icono subido con éxito');
+          if (userDataContainer) {
+            userDataContainer.innerHTML = userDataHTML;
+          }
+        }
 
-          // Obtener la URL del icono subido
-          const downloadURL = await snapshot.ref.getDownloadURL();
-
-          // Actualizar la información del usuario en Firestore
-          const userRef = firestore.collection('usuarios').doc(user.uid);
-          await userRef.update({
-            iconURL: downloadURL,
+        // Agregar el evento de cambio al input de tipo archivo
+        if (iconInput) {
+          iconInput.addEventListener('change', (e) => {
+            const selectedFile = e.target.files[0];
+            if (selectedFile) {
+              console.log('Archivo seleccionado:', selectedFile);
+            }
           });
+        }
 
-          console.log('Información del usuario actualizada con éxito');
-        } catch (error) {
-          console.error('Error al subir el icono o actualizar la información del usuario:', error);
+        // Agregar el evento de envío del formulario
+        if (iconForm) {
+          iconForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const iconFile = iconInput.files[0];
+            if (iconFile) {
+              try {
+                // Subir el icono a Firebase Storage
+                const storageRef = getStorage(storage.app, 'gs://vandallogin.appspot.com');
+                const iconRef = ref(storageRef, `iconos/${user.uid}/profileIcon`);
+                const snapshot = await uploadBytes(iconRef, iconFile);
+
+                console.log('Icono subido con éxito');
+
+                // Obtener la URL del icono subido
+                const downloadURL = await getDownloadURL(iconRef);
+
+                // Actualizar la información del usuario en Firestore
+                const userRef = doc(firestore, 'usuarios', user.uid);
+                await updateDoc(userRef, {
+                  iconURL: downloadURL,
+                });
+
+                if (messageContainer) {
+                  messageContainer.innerHTML = '<p>Icono subido con éxito</p>';
+                }
+              } catch (error) {
+                console.error('Error al subir el icono o actualizar la información del usuario:', error);
+                if (messageContainer) {
+                  messageContainer.innerHTML = '<p>Error al subir el icono</p>';
+                }
+              }
+            }
+          });
+        }
+
+      } else {
+        // El usuario no está autenticado
+        if (userDataContainer) {
+          userDataContainer.innerHTML = '<p>No hay usuario autenticado.</p>';
         }
       }
     });
-
-  } else {
-    // El usuario no está autenticado
-    userDataContainer.innerHTML = '<p>No hay usuario autenticado.</p>';
+  } catch (error) {
+    console.error('Error al cargar el módulo de Firebase:', error);
   }
 });
