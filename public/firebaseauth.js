@@ -1,10 +1,12 @@
 // firebaseauth.js
 import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { app } from "./firebaseconfig.js";
-import { getFirestore, collection, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { getFirestore, collection, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
 const auth = getAuth(app);
 const firestore = getFirestore(app);
+const storage = getStorage(app);
 const provider = new GoogleAuthProvider();
 
 let lastSignInTime = 0;
@@ -17,8 +19,7 @@ setPersistence(auth, browserSessionPersistence)
     console.error("Error al configurar la persistencia:", error);
   });
 
-export { auth, provider, signInWithPopup, firestore };
-
+export { auth, provider, signInWithPopup, firestore, storage };
 export async function storeUserDataInFirestore(uid, displayName, email) {
   const usersCollection = collection(firestore, 'usuarios');
   const userDoc = doc(usersCollection, uid);

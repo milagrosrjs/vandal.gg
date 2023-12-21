@@ -1,6 +1,7 @@
-// firebaseConfig.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
 
 const firebaseConfig = {
@@ -13,5 +14,8 @@ const firebaseConfig = {
   measurementId: "G-TRGDWCV8BX"
 };
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-export { app, db };
+const analytics = getAnalytics(app);
+const firestore = getFirestore(app);
+const storage = getStorage(app);
+
+export { app, analytics, firestore, storage };

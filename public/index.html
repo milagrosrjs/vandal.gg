@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
       carruselContainer.innerHTML += contenidoHTML;
     });
 
-   // Configuración de Slick Carousel
+// Configuración de Slick Carousel
 $('#torneoCarrusel').slick({
   dots: true,
   infinite: true,
@@ -159,9 +159,11 @@ $('#torneoCarrusel').slick({
   slidesToScroll: 1,
   centerMode: true,
   centerPadding: '0',
-  adaptiveHeight: true, // Ajusta automáticamente la altura de los elementos
+  adaptiveHeight: true,
+  prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+  nextArrow: '<button type="button" class="slick-next">Next</button>',
 });
-  });
+});
 });
 </script>
 
