@@ -450,6 +450,30 @@
     #NEWS
   \*-----------------------------------*/
   
+  #iconForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5rem; /* Ajusta el margen superior según sea necesario */
+}
+
+  #iconInput {
+    margin-top: rem; /* Ajusta el margen superior según sea necesario */
+    margin-left: 70rem;
+  }
+
+  #userIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5rem; /* Ajusta el margen superior según sea necesario */
+    margin-left: 45rem;
+}
+
   .news-list {
     display: grid;
     gap: 30px;
