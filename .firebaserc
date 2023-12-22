@@ -1,9 +1,5 @@
 {
   "projects": {
-    "default": "vandallogin",
-    "vandal": "vandallogin",
-    "a": "vandallogin"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "vandallogin"
+  }
 }

@@ -1,6 +1,9 @@
 // app.js
 import { db } from "./firebaseconfig.js";
-import { auth, currentUser } from './auth.js';
+import { auth} from './auth.js';
+
+import { currentUser } from './teamCreation.js';
+
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 // Función para obtener los productos de la base de datos
