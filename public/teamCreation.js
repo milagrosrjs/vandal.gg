@@ -3,6 +3,8 @@ import { app } from "./firebaseconfig.js";
 import { auth, provider, signInWithPopup, firestore } from './auth.js';
 import { getFirestore, collection, addDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
+let currentUser; // Declarar la variable currentUser
+
 async function createTeam() {
     const teamName = document.getElementById('teamName').value;
     const teamDescription = document.getElementById('teamDescription').value;
@@ -14,8 +16,9 @@ async function createTeam() {
     }
 
     // Verificar si el usuario está autenticado
-    const user = auth.currentUser;
-    if (user) {
+    currentUser = auth.currentUser; // Asignar el valor de currentUser aquí
+
+    if (currentUser) {
         // El usuario está autenticado, permitir la creación del equipo
         // Luego, puedes llamar a la función que maneja la creación del equipo
         const teamId = await handleTeamCreation(teamName, teamDescription);

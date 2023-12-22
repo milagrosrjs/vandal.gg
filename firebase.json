@@ -12,14 +12,5 @@
         "destination": "/index.html"
       }
     ]
-  },
-  "storage": {
-    "rules": "firebase-storage-rules/rules.json",  
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**",
-      "**/firebase-storage-rules/**"  
-    ]
-}
+  }
 }
