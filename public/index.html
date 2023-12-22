@@ -98,13 +98,15 @@
       </div>
 
 
-
-      <a href="ruleta.html" class="btn" data-btn>Ver Ruleta</a>
-
-      <div class="carrusel-container">
-        <div id="torneoCarrusel" class="slick-carousel">
-          <div class="carousel-inner">
-      <!-- Contenido del carrusel -->
+    </main>
+ <!-- Carrusel -->
+ <div class="hero has-before" id="home">
+  <a href="ruleta.html" class="btn" data-btn>Ver Ruleta</a>
+  <div class="carrusel-container">
+    <div id="torneoCarrusel" class="slick-carousel">
+      <div class="carousel-inner">
+        <!-- Los elementos del carrusel se añadirán aquí dinámicamente -->
+      </div>
     </div>
     <button class="carousel-control-prev" type="button">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -115,56 +117,62 @@
       <span class="visually-hidden">Siguiente</span>
     </button>
   </div>
+</main>
 
-  <script type="module" src="./firebaseconfig.js" async defer></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <script type="module">
-    import { app } from "./firebaseconfig.js";
-    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+<!-- Incluye la biblioteca Slick Carousel al final del body -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="module" src="./firebaseconfig.js" async defer></script>
+<script type="module">
+import { app } from "./firebaseconfig.js";
+import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-  
-    const db = getFirestore(app);
+const db = getFirestore(app);
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const torneosCollection = collection(db, 'torneos');
-      const carruselContainer = document.querySelector('.carousel-inner');
+document.addEventListener('DOMContentLoaded', function () {
+  const torneosCollection = collection(db, 'torneos');
+  const carruselContainer = document.querySelector('.carousel-inner');
 
-      onSnapshot(torneosCollection, (snapshot) => {
-        carruselContainer.innerHTML = '';
+  onSnapshot(torneosCollection, (snapshot) => {
+    carruselContainer.innerHTML = '';
 
-        snapshot.forEach((doc) => {
-          const torneo = doc.data();
-          const contenidoHTML = `
-            <div class="carousel-item">
-              <h3>${torneo.nombre}</h3>
-              <p>${torneo.equipo1} vs. ${torneo.equipo2}</p>
-              <p>Fecha: ${torneo.fecha} | Hora: ${torneo.hora}</p>
-            </div>
-          `;
+    snapshot.forEach((doc) => {
+      const torneo = doc.data();
+      const contenidoHTML = `
+        <div class="carousel-item">
+          <div class="carousel-content">
+            <h3>Torneos</h3>
+            <p>${torneo.equipo1} vs. ${torneo.equipo2}</p>
+            <p>Fecha: ${torneo.fecha} | Hora: ${torneo.hora}</p>
+          </div>
+        </div>
+      `;
 
-          carruselContainer.innerHTML += contenidoHTML;
-        });
-
-        // Configuración de Slick Carousel
-        
-        $('.slick-carousel').slick({
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1
-        });
-      });
+      carruselContainer.innerHTML += contenidoHTML;
     });
-  </script>
 
-  <!-- Agrega la biblioteca Slick Carousel -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+// Configuración de Slick Carousel
+$('#torneoCarrusel').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  centerMode: true,
+  centerPadding: '0',
+  adaptiveHeight: true,
+  prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+  nextArrow: '<button type="button" class="slick-next">Next</button>',
+});
+});
+});
+</script>
 
-  
-  </main>
+<!-- Incluye la biblioteca Slick Carousel -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+      
   <section class="section news" aria-label="our latest news" id="news">
     <div class="container">
 
